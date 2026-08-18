@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursor Trail Demo & Documentation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #090b09;
+      color: #f1efe7;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-8 sm:p-16">
+
+  <!-- Header -->
+  <header class="max-w-4xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-6">
+    <div class="flex items-center gap-3">
+      <span class="w-8 h-8 rounded-lg bg-[#ff7200] text-black font-mono font-bold flex items-center justify-center">CT</span>
+      <h1 class="font-mono text-sm font-semibold tracking-wider uppercase text-[#f1efe7]">Cursor-Trail.js</h1>
+    </div>
+    <a href="https://github.com" target="_blank" class="font-mono text-xs text-[#8c8e84] hover:text-[#ff7200] transition-colors">
+      Standalone Plugin ↗
+    </a>
+  </header>
+
+  <!-- Interactive Test Playground -->
+  <main class="max-w-4xl mx-auto w-full my-12 space-y-12">
+
+    <!-- Title & Description -->
+    <div class="space-y-4">
+      <h2 class="text-4xl sm:text-5xl font-serif font-normal tracking-tight">
+        Interactive <span class="italic text-[#ff7200]">Cursor Trail</span> Demo
+      </h2>
+      <p class="text-base text-[#8c8e84] max-w-xl leading-relaxed">
+        Move your mouse to experience the dual-layer inertia halo and fluid particle comet trail. Hover over the interactive elements below to test magnetic attraction and context morphing.
+      </p>
+    </div>
+
+    <!-- Test Elements Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Test 1: Magnetic Buttons -->
+      <div class="p-6 rounded-2xl border border-white/10 bg-[#10120f]/80 space-y-4">
+        <span class="font-mono text-[10px] uppercase text-[#ff7200] tracking-widest">[ 01. Magnetic Buttons ]</span>
+        <p class="text-xs text-[#8c8e84]">Buttons attract magnetically toward your cursor.</p>
+        <div class="pt-2 flex flex-col gap-3">
+          <button class="btn px-5 py-3 rounded-lg bg-[#ff7200] text-black font-mono text-xs font-bold uppercase tracking-wider transition-transform">
+            Magnetic Button
+          </button>
+          <button class="btn px-5 py-3 rounded-lg border border-white/20 text-[#f1efe7] font-mono text-xs font-semibold uppercase tracking-wider hover:border-[#ff7200] transition-transform">
+            Secondary CTA →
+          </button>
+        </div>
+      </div>
+
+      <!-- Test 2: Card Hover Badge -->
+      <div class="p-6 rounded-2xl border border-white/10 bg-[#10120f]/80 space-y-4 card" data-cursor-text="EXPLORE ↗">
+        <span class="font-mono text-[10px] uppercase text-[#ff7200] tracking-widest">[ 02. Card Hover Badge ]</span>
+        <p class="text-xs text-[#8c8e84]">Hovering over showcase cards expands the cursor into an illuminated badge.</p>
+        <div class="h-28 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-xs font-mono text-[#8c8e84]">
+          Hover this card
+        </div>
+      </div>
+
+      <!-- Test 3: Text Input Morph -->
+      <div class="p-6 rounded-2xl border border-white/10 bg-[#10120f]/80 space-y-4">
+        <span class="font-mono text-[10px] uppercase text-[#ff7200] tracking-widest">[ 03. Input Focus Morph ]</span>
+        <p class="text-xs text-[#8c8e84]">Cursor morphs into a sleek vertical indicator over inputs.</p>
+        <input 
+          type="text" 
+          placeholder="Type something here..." 
+          class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-[#f1efe7] focus:outline-none focus:border-[#ff7200]"
+        />
+      </div>
+
+    </div>
+
+    <!-- Quick Installation Code Box -->
+    <div class="p-6 rounded-2xl border border-[#ff7200]/30 bg-[#10120f] space-y-4 shadow-2xl shadow-[#ff7200]/5">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs font-bold uppercase tracking-wider text-[#ff7200]">How to use in your website:</span>
+        <span class="font-mono text-[10px] text-[#8c8e84]">HTML drop-in</span>
+      </div>
+
+      <div class="bg-black/60 rounded-xl p-4 font-mono text-xs text-[#f1efe7] overflow-x-auto border border-white/5">
+        <code class="text-[#8c8e84]">&lt;!-- 1. Include cursor-trail.js before &lt;/body&gt; --&gt;</code><br/>
+        <code>&lt;script src="<span class="text-[#ff7200]">cursor-trail.js</span>"&gt;&lt;/script&gt;</code><br/><br/>
+        <code class="text-[#8c8e84]">&lt;!-- (Optional) Custom Color & Config --&gt;</code><br/>
+        <code>&lt;script src="<span class="text-[#ff7200]">cursor-trail.js</span>" data-color="<span class="text-[#ff7200]">#ff7200</span>" data-trail="<span class="text-[#ff7200]">true</span>" data-magnetic="<span class="text-[#ff7200]">true</span>"&gt;&lt;/script&gt;</code>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-4xl mx-auto w-full border-t border-white/10 pt-6 flex items-center justify-between font-mono text-xs text-[#8c8e84]">
+    <span>Zero Dependencies • Mobile Auto-Disabled • 60 FPS</span>
+    <span>cursor-trail.js</span>
+  </footer>
+
+  <!-- Include Cursor-Trail.js -->
+  <script src="cursor-trail.js" data-color="#000000" data-magnetic="true"></script>
+
+</body>
+</html>

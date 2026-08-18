@@ -1,0 +1,123 @@
+/* Doodle Icons & Animations */
+:root {
+  --dd-pink: #ff5e8e;
+  --dd-yellow: #ffd15c;
+  --dd-purple: #b388ff;
+  --dd-blue: #38bdf8;
+  --dd-green: #4ade80;
+}
+
+/* Base Overlay Container */
+.doodle-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.doodle-item {
+  position: absolute;
+  will-change: transform;
+}
+
+/* Individual Icon Styles & Keyframe Animations */
+
+/* 1. Squiggle (Pink) */
+.doodle-squiggle {
+  color: var(--dd-pink, #ff5e8e);
+  animation: doodle-float 5s ease-in-out infinite;
+}
+
+/* 2. Sparkle / 4-Point Star (Yellow) */
+.doodle-sparkle {
+  color: var(--dd-yellow, #ffd15c);
+  animation: doodle-twinkle 3.5s ease-in-out infinite;
+}
+
+/* 3. Starburst / Asterisk (Purple) */
+.doodle-burst {
+  color: var(--dd-purple, #b388ff);
+  animation: doodle-spin 12s linear infinite;
+}
+
+/* 4. Curved Arrow (Blue) */
+.doodle-arrow {
+  color: var(--dd-blue, #38bdf8);
+  animation: doodle-bounce 4s ease-in-out infinite;
+}
+
+/* 5. Zigzag Wave (Green) */
+.doodle-zigzag {
+  color: var(--dd-green, #4ade80);
+  animation: doodle-wave 4.5s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes doodle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(-12deg) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-8deg) scale(1.05);
+  }
+}
+
+@keyframes doodle-twinkle {
+  0%, 100% {
+    transform: translateY(0px) rotate(12deg) scale(1);
+    filter: drop-shadow(0 0 2px rgba(255, 209, 92, 0.4));
+  }
+  50% {
+    transform: translateY(-10px) rotate(24deg) scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(255, 209, 92, 0.8));
+  }
+}
+
+@keyframes doodle-spin {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+@keyframes doodle-bounce {
+  0%, 100% {
+    transform: scaleX(-1) translateY(0px) rotate(12deg);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-12px) translateX(6px) rotate(18deg);
+  }
+}
+
+@keyframes doodle-wave {
+  0%, 100% {
+    transform: translateY(0px) rotate(-6deg) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-3deg) scale(1.04);
+  }
+}
+
+/* Path drawing stroke animation */
+@keyframes doodle-draw {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 200;
+  }
+}
+
+.doodle-animated-path {
+  stroke-dasharray: 200;
+  animation: doodle-draw 6s ease-in-out infinite;
+}
